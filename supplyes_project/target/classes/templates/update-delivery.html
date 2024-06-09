@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Delivery</title>
+</head>
+<body>
+<h1>Edit Delivery</h1>
+<form action="#" th:action="@{/deliveries/update-delivery}" th:object="${delivery}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label for="supplier">Supplier:</label>
+    <select id="supplier" th:field="*{supplier.id}">
+        <option th:each="supplier : ${suppliers}" th:value="${supplier.id}" th:text="${supplier.name}"></option>
+    </select>
+    <br>
+    <label for="fruit">Fruit:</label>
+    <select id="fruit" th:field="*{fruit.id}">
+        <option th:each="fruit : ${fruits}" th:value="${fruit.id}" th:text="${fruit.name}"></option>
+    </select>
+    <br>
+    <label for="deliveryDate">Delivery Date:</label>
+    <input type="datetime-local" id="deliveryDate" th:field="*{deliveryDate}" required>
+    <br>
+    <label for="weight">Weight (kg):</label>
+    <input type="number" id="weight" th:field="*{weight}" required>
+    <br>
+    <button type="submit">Update Delivery</button>
+</form>
+</body>
+</html>

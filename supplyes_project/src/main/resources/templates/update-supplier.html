@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update exist supplier</title>
+</head>
+<body>
+<h1>Update exist supplier</h1>
+<form th:action="@{/suppliers/update-supplier}" th:object="${supplier}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="name">Name:</label>
+    <input type="text" id="name" th:field="*{name}" name="name" required>
+    <br>
+    <button type="submit">Update supplier</button>
+</form>
+</body>
+</html>

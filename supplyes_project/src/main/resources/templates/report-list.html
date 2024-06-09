@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Report List</title>
+</head>
+<body>
+<h1>Report</h1>
+<table border="1">
+  <thead>
+  <tr>
+    <th>Supplier Name</th>
+    <th>Fruit Name</th>
+    <th>Total Weight</th>
+    <th>Total Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="entry : ${reportEntries}">
+    <td th:text="${entry.supplierName}"></td>
+    <td th:text="${entry.fruitName}"></td>
+    <td th:text="${entry.totalWeight}"></td>
+    <td th:text="${entry.totalCost}"></td>
+  </tr>
+  </tbody>
+</table>
+<a href="/report">Generate another report</a>
+<a th:href="@{/}">Main page</a>
+</body>
+</html>

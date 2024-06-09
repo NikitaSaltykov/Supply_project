@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fruits</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<div th:switch="${fruits}">
+    <h2 th:case="null">No fruits found!</h2>
+    <div th:case="*">
+        <h2>Fruits</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price per kg</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="fruit : ${fruits}">
+                <td th:text="${fruit.id}"></td>
+                <td th:text="${fruit.name}"></td>
+                <td th:text="${fruit.pricePerKg}"></td>
+                <td>
+                    <a th:href="@{/fruits/update-fruit/{id}(id=${fruit.id})}">Edit</a> |
+                    <a th:href="@{/fruits/delete-fruit/{id}(id=${fruit.id})}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/fruits/add-fruit">Create fruit</a></p>
+    <a th:href="@{/}">Main page</a>
+</div>
+</body>
+</html>

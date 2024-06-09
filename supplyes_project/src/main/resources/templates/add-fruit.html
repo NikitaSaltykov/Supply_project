@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add New Fruit</title>
+</head>
+<body>
+<h1>Add New Fruit</h1>
+<form th:action="@{/fruits/add-fruit}" th:object="${fruit}" method="post">
+  <label for="name">Name:</label>
+  <input type="text" id="name" th:field="*{name}" name="name" required>
+  <br>
+  <label for="pricePerKg">Price per Kg:</label>
+  <input type="number" id="pricePerKg" th:field="*{pricePerKg}" name="pricePerKg" required>
+  <br>
+  <button type="submit">Add Fruit</button>
+</form>
+</body>
+</html>
